@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<policyDefinitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0" xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+<policyNamespaces>
+    <target prefix="identityagent" namespace="NHS.IdentityAgent" />
+    <using namespace="NHS.Policies" prefix="NHS" />
+    <using prefix="windows" namespace="Microsoft.Policies.Windows" />
+</policyNamespaces>
+<resources minRequiredRevision="1.0" />
+  <categories>
+    <category name="NHS_IdentityAgent" displayName="$(string.IdentityAgent)">
+    <parentCategory ref="NHS:Cat_NHS" />
+    </category>
+  </categories>
+  <policies>
+    <policy name="ActivatePOSTURL" class="Both" displayName="$(string.ActivatePOSTURL)" explainText="$(string.ActivatePOSTURL_Explain)" key="Software\Policies\HSCIC\Identity Agent" presentation="$(presentation.ActivatePOSTURL)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <text id="ActivatePOSTURL" valueName="ActivatePOSTURL"/>
+      </elements>
+    </policy>
+    <policy name="LaunchAppsType" class="Both" displayName="$(string.LaunchAppsType)" explainText="$(string.LaunchAppsType_Explain)" key="Software\Policies\HSCIC\Identity Agent" presentation="$(presentation.LaunchAppsType)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <enum id="LaunchAppsType" valueName="LaunchAppsType">
+          <item displayName="$(string.LaunchAppsType_None)">
+            <value>
+              <string value="none"/>
+            </value>
+          </item>
+          <item displayName="$(string.LaunchAppsType_Files)">
+            <value>
+              <string value="files"/>
+            </value>
+          </item>
+          <item displayName="$(string.LaunchAppsType_Directory)">
+            <value>
+              <string value="directory"/>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="LaunchAppsPath" class="Both" displayName="$(string.LaunchAppsPath)" explainText="$(string.LaunchAppsPath_Explain)" key="Software\Policies\HSCIC\Identity Agent" presentation="$(presentation.LaunchAppsPath)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <text id="LaunchAppsPath" valueName="LaunchAppsPath"/>
+      </elements>
+    </policy>
+    <policy name="EnableTrainingOption" class="Both" displayName="$(string.EnableTrainingOption)" explainText="$(string.EnableTrainingOption_Explain)" key="Software\Policies\HSCIC\Identity Agent" valueName="EnableTrainingOption" presentation="$(presentation.EnableTrainingOption)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <string value="true"/>
+      </enabledValue>
+      <disabledValue>
+        <string value="false"/>
+      </disabledValue>
+    </policy>
+    <policy name="IdleWaitPeriodInSeconds" class="Both" displayName="$(string.IdleWaitPeriodInSeconds)" explainText="$(string.IdleWaitPeriodInSeconds_Explain)" key="Software\Policies\HSCIC\Identity Agent" presentation="$(presentation.IdleWaitPeriodInSeconds)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <decimal id="IdleWaitPeriodInSeconds" valueName="IdleWaitPeriodInSeconds" maxValue="999999999999999"/>
+      </elements>
+    </policy>
+    <policy name="TimeAllowedLockedUntilLogoffInSeconds" class="Both" displayName="$(string.TimeAllowedLockedUntilLogoffInSeconds)" explainText="$(string.TimeAllowedLockedUntilLogoffInSeconds_Explain)" key="Software\Policies\HSCIC\Identity Agent" presentation="$(presentation.TimeAllowedLockedUntilLogoffInSeconds)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <decimal id="TimeAllowedLockedUntilLogoffInSeconds" maxValue="28500" valueName="TimeAllowedLockedUntilLogoffInSeconds"/>
+      </elements>
+    </policy>
+    <policy name="MobilityPersistence_Available" class="Both" displayName="$(string.MobilityPersistence_Available)" explainText="$(string.MobilityPersistence_Available_Explain)" key="Software\Policies\HSCIC\Identity Agent" valueName="MobilityPersistence_Available" presentation="$(presentation.MobilityPersistence_Available)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <string value="true"/>
+      </enabledValue>
+      <disabledValue>
+        <string value="false"/>
+      </disabledValue>
+    </policy>
+    <policy name="ConfigTheme" class="Both" displayName="$(string.ConfigTheme)" explainText="$(string.ConfigTheme_Explain)" key="Software\Policies\HSCIC\Identity Agent" presentation="$(presentation.ConfigTheme)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <enum id="ConfigTheme" valueName="ConfigTheme">
+          <item displayName="$(string.ConfigTheme_Default)">
+            <value>
+              <string value="Off"/>
+            </value>
+          </item>
+          <item displayName="$(string.ConfigTheme_Minimal)">
+            <value>
+              <string value="Minimal"/>
+            </value>
+          </item>
+          <item displayName="$(string.ConfigTheme_Medium)">
+            <value>
+              <string value="Medium"/>
+            </value>
+          </item>
+          <item displayName="$(string.ConfigTheme_Maximum)">
+            <value>
+              <string value="Maximum"/>
+            </value>
+          </item>
+        </enum>
+      </elements>
+    </policy>
+    <policy name="SessionLockPersistence_Enabled" class="Both" displayName="$(string.SessionLockPersistence_Enabled)" explainText="$(string.SessionLockPersistence_Enabled_Explain)" key="Software\Policies\HSCIC\Identity Agent" valueName="SessionLockPersistence_Enabled" presentation="$(presentation.SessionLockPersistence_Enabled)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <string value="true"/>
+      </enabledValue>
+      <disabledValue>
+        <string value="false"/>
+      </disabledValue>
+    </policy>
+    <policy name="ProcessesToKill" class="Both" displayName="$(string.ProcessesToKill)" explainText="$(string.ProcessesToKill_Explain)" key="Software\Policies\HSCIC\Identity Agent" presentation="$(presentation.ProcessesToKill)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <text id="ProcessesToKill" valueName="ProcessesToKill"/>
+      </elements>
+    </policy>
+    <policy name="SmartcardReaderDeniedList" class="Both" displayName="$(string.SmartcardReaderDeniedList)" explainText="$(string.SmartcardReaderDeniedList_Explain)" key="Software\Policies\HSCIC\Identity Agent" presentation="$(presentation.SmartcardReaderDeniedList)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <text id="SmartcardReaderDeniedList" valueName="SmartcardReaderDeniedList"/>
+      </elements>
+    </policy>
+    <policy name="NoRolesLogoff" class="Both" displayName="$(string.NoRolesLogoff)" explainText="$(string.NoRolesLogoff_Explain)" key="Software\Policies\HSCIC\Identity Agent" valueName="NoRolesLogoff" presentation="$(presentation.NoRolesLogoff)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <string value="true"/>
+      </enabledValue>
+      <disabledValue>
+        <string value="false"/>
+      </disabledValue>
+    </policy>
+    <policy name="CardRemovalCheck" class="Both" displayName="$(string.CardRemovalCheck)" explainText="$(string.CardRemovalCheck_Explain)" key="Software\Policies\HSCIC\Identity Agent" valueName="CardRemovalCheck" presentation="$(presentation.CardRemovalCheck)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <string value="true"/>
+      </enabledValue>
+      <disabledValue>
+        <string value="false"/>
+      </disabledValue>
+    </policy>
+    <policy name="TrustedCertificateIssuers" class="Both" displayName="$(string.TrustedCertificateIssuers)" explainText="$(string.TrustedCertificateIssuers_Explain)" key="Software\Policies\HSCIC\Identity Agent" presentation="$(presentation.TrustedCertificateIssuers)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <elements>
+        <text id="TrustedCertificateIssuers" valueName="TrustedCertificateIssuers"/>
+      </elements>
+    </policy>
+    <policy name="CardHealingEnabled" class="Both" displayName="$(string.CardHealingEnabled)" explainText="$(string.CardHealingEnabled_Explain)" key="Software\Policies\HSCIC\Identity Agent" valueName="CardHealingEnabled" presentation="$(presentation.CardHealingEnabled)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <string value="true"/>
+      </enabledValue>
+      <disabledValue>
+        <string value="false"/>
+      </disabledValue>
+    </policy>
+    <policy name="EnhancedNormalMode" class="Both" displayName="$(string.EnhancedNormalMode)" explainText="$(string.EnhancedNormalMode_Explain)" key="Software\Policies\HSCIC\Identity Agent" valueName="EnhancedNormalMode" presentation="$(presentation.EnhancedNormalMode)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <string value="true"/>
+      </enabledValue>
+      <disabledValue>
+        <string value="false"/>
+      </disabledValue>
+    </policy>
+    <policy name="UseCardReaderPolling" class="Both" displayName="$(string.UseCardReaderPolling)" explainText="$(string.UseCardReaderPolling_Explain)" key="Software\Policies\HSCIC\Identity Agent" valueName="UseCardReaderPolling" presentation="$(presentation.UseCardReaderPolling)">
+      <parentCategory ref="NHS_IdentityAgent" />
+      <supportedOn ref="windows:SUPPORTED_Windows_10_0" />
+      <enabledValue>
+        <string value="true"/>
+      </enabledValue>
+      <disabledValue>
+        <string value="false"/>
+      </disabledValue>
+    </policy>
+  </policies>
+  </policyDefinitions>

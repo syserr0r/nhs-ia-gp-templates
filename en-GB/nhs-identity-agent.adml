@@ -1,0 +1,142 @@
+<?xml version="1.0" ?>
+<policyDefinitionResources xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" revision="1.0" schemaVersion="1.0"
+    xmlns="http://schemas.microsoft.com/GroupPolicy/2006/07/PolicyDefinitions">
+    <displayName/>
+    <description/>
+    <resources>
+        <stringTable>
+            <string id="IdentityAgent">Identity Agent</string>
+            <string id="ActivatePOSTURL">Spine Environment URL</string>
+            <string id="ActivatePOSTURL_Explain">The Spine URL where activate / challenge requests are sent. (Default: https://gas.national.ncrs.nhs.uk/login/authactivate)
+
+The Identity Agent can be configured to operate against alternate environments through the use of registry settings.
+This table lists the Path-to-Live environments and their respective settings:
+
+NIS1 (INT): https://gas.nis1.national.ncrs.nhs.uk/login/authactivate
+VNIS1 (DEP): https://gas.vn1.national.ncrs.nhs.uk/login/authactivate
+TSP (TRAINING): https://gas.tsp.national.ncrs.nhs.uk/login/authactivate
+Live: https://gas.national.ncrs.nhs.uk/login/authactivate</string>
+            <string id="LaunchAppsType">Launch applications or folder upon successful authentication</string>
+            <string id="LaunchAppsType_Explain">Used to launch applications upon successful authentication. Options are 'none', 'directory' or 'files'.  If 'none' is selected, no applications are launched.
+
+If 'files' is selected, the files or URLs specified in LaunchAppsPath are launched.  (e.g: set this to "Files" and LaunchAppsPath to the portal URL).
+
+If 'directory' is selected a shell execute will be attempted on all non-hidden files in the specified directory.</string>
+            <string id="LaunchAppsType_None">None</string>
+            <string id="LaunchAppsType_Files">Files</string>
+            <string id="LaunchAppsType_Directory">Directory</string>
+            <string id="LaunchAppsPath">Launch applications or folder upon successful authentication (Path)</string>
+            <string id="LaunchAppsPath_Explain">If 'files' is specified for LaunchAppsType, this will be either a semi-colon delimited set of paths to launch applications or URI's. If 'directory' is specified, this will be a single path for the directory in question. A typical entry would be the URL for the Spine Portal.</string>
+            <string id="EnableTrainingOption">Enable Training option in passcode form</string>
+            <string id="EnableTrainingOption_Explain">If enabled the training mode option is displayed on the passcode form.</string>
+            <string id="IdleWaitPeriodInSeconds">Idle timeout</string>
+            <string id="IdleWaitPeriodInSeconds_Explain">The time (in seconds) that the user session is allowed to be idle before it 'Windows locks' the screen (1800s = 30m).
+
+IT Administrators might want to review this timing in relation to individual needs within the service.
+
+No maximum value.
+
+This timer is active in 'Session Lock' and 'Normal' modes, and 'Mobility mode' whilst the Smartcard is present. In 'Mobility mode' whilst the Smartcard is removed, the Identity Agent v2.x mobility idle timer takes over and 'IdleWaitPeriodInSeconds' is stopped.</string>
+            <string id="TimeAllowedLockedUntilLogoffInSeconds">Locked session timeout</string>
+            <string id="TimeAllowedLockedUntilLogoffInSeconds_Explain">The time (in seconds) that the user is allowed to maintain a locked (Windows) screen before the user is logged out of Spine (15000s = 4h 10m).
+Maximum value is 28500. Values higher than this will be ignored, and force set to 28500.
+
+IT Administrators might want to review this timing in relation to individual needs within the service.</string>
+            <string id="MobilityPersistence_Available">Mobility Persistence option in passcode form</string>
+            <string id="MobilityPersistence_Available_Explain">If enabled, this setting makes the mobility persistence toggle available on the passcode form</string>
+            <string id="ConfigTheme">Mobility mode</string>
+            <string id="ConfigTheme_Explain">Defines the theme for timers used in 'Mobility mode'. Possible values are 'Off', 'Minimal', 'Medium', 'Maximum'.
+
+The settings associated with each theme are defined in the 'Config Themes' section of the NHS Digital Identity Agent Administrators Guide.</string>
+            <string id="ConfigTheme_Default">Default</string>
+            <string id="ConfigTheme_Minimal">Minimal</string>
+            <string id="ConfigTheme_Medium">Medium</string>
+            <string id="ConfigTheme_Maximum">Maximum</string>
+            <string id="SessionLockPersistence_Enabled">Session lock persistence</string>
+            <string id="SessionLockPersistence_Enabled_Explain">Switch on session lock persistence.
+
+Disabling or not specifying this setting, enables the Identity Agent to operate under 'Normal mode'.</string>
+            <string id="ProcessesToKill">Process to kill on logoff</string>
+            <string id="ProcessesToKill_Explain">The names of executables to kill when a Smartcard is removed, or another logoff event occurs. This can / should include the names of native Spine applications (non-browser) to ensure IG standards are adhered to.
+Note: Do not add the .exe to the end of the process you want to kill.</string>
+            <string id="SmartcardReaderDeniedList">Smartcard devices to ignore</string>
+            <string id="SmartcardReaderDeniedList_Explain">There is a currently undocumented feature in the Identity Agent that allows certain devices to be ignored as potential card readers.
+To add a reader to the list, provide the name separated by a semi-colon for example:- adding a YubiKey should look like
+MICROSOFT UICC ISO READER;WINDOWS HELLO FOR BUSINESS;Yubico YubiKey</string>
+            <string id="NoRolesLogoff">Logoff user if they have no roles when logging in</string>
+            <string id="NoRolesLogoff_Explain">Action to take if a user attempts to login with no roles assigned.  If set to 'true' a log out will occur, otherwise the user will remain logged in.</string>
+            <string id="CardRemovalCheck">Card removal check</string>
+            <string id="CardRemovalCheck_Explain">This registry entry should be placed with a value of 'false' by RA / RAMs performing CMS on CIS, in order to resolve Known Issue KE20 in the Identity Agent v2.x Release Notes.</string>
+            <string id="TrustedCertificateIssuers">Trusted certificate issuers</string>
+            <string id="TrustedCertificateIssuers_Explain">By default, the user's personal certificate store is cleared on successful Spine authentication.
+If the user requires the presence of certificates other than those required for Spine authentication, place the following value for this registry entry:
+LIVE
+CN=NHS Level 1C, OU=CA, O=nhs;CN=NHS Level 1D, OU=CA, O=nhs;CN=NHS Authentication G2, OU=CA, O=nhs, C=GB;CN=NHS Signing G2, OU=CA, O=nhs, C=GB
+For the test environments, place the following value in the registry:
+INT
+CN=NHS INT Authentication G2,OU=CA,O=nhs,C=GB;CN=NHS INT Signing G2,OU=CA,O=nhs,C=GB</string>
+            <string id="CardHealingEnabled">Card Healing</string>
+            <string id="CardHealingEnabled_Explain">By default, GemHeal is enabled and will check and attempt to heal a Gemalto Series 4/5/6 Smartcard on each login by the user.
+This is unlikely to need modifying, however it may resolve issues with the GemHeal module, if advised so. *
+
+
+* When working in Citrix environments it is recommended to set CardHealingEnabled to false on the Citrix client machine. Restart Identity Agent when the setting has been changed.</string>
+            <string id="EnhancedNormalMode">Enhanced Normal Mode</string>
+            <string id="EnhancedNormalMode_Explain">By default, Normal mode is enabled, and the user does not have to enter their PIN on unlocking Windows when their Smartcard is left inserted and logged into Spine during the lock/unlock operation.
+Setting to true will enforce the user requiring their passcode on unlocking Windows in the same manner as the previous version of Identity Agent.</string>
+            <string id="UseCardReaderPolling">Card Reader Polling</string>
+            <string id="UseCardReaderPolling_Explain">By default, card reader polling is disabled. Set this value to true to allow the Identity Agent to poll card readers when using Citrix environments. *
+
+
+* When working in Citrix environments it is recommended to set CardHealingEnabled to false on the Citrix client machine. Restart Identity Agent when the setting has been changed.</string>
+        </stringTable>
+        <presentationTable>
+            <presentation id="ActivatePOSTURL">
+                <textBox refId="ActivatePOSTURL">
+                    <label>Spine URL where activate / challenge requests are sent</label>
+                </textBox>
+            </presentation>
+            <presentation id="LaunchAppsType">
+                <dropdownList refId="LaunchAppsType">Type for launching applications upon successful authentication</dropdownList>
+            </presentation>
+            <presentation id="LaunchAppsPath">
+                <textBox refId="LaunchAppsPath">
+                    <label>Semi-colon separated list of paths of applications or URI (files mode) or a single path for a directory</label>
+                </textBox>
+            </presentation>
+            <presentation id="EnableTrainingOption"/>
+            <presentation id="IdleWaitPeriodInSeconds">
+                <decimalTextBox refId="IdleWaitPeriodInSeconds">Idle period in seconds:</decimalTextBox>
+            </presentation>
+            <presentation id="TimeAllowedLockedUntilLogoffInSeconds">
+                <decimalTextBox refId="TimeAllowedLockedUntilLogoffInSeconds">Time in seconds a users session can remain locked before they are logged out:</decimalTextBox>
+            </presentation>
+            <presentation id="MobilityPersistence_Available"/>
+            <presentation id="ConfigTheme">
+                <dropdownList refId="ConfigTheme">Type for launching applications upon successful authentication</dropdownList>
+            </presentation>
+            <presentation id="SessionLockPersistence_Enabled"/>
+            <presentation id="ProcessesToKill">
+                <textBox refId="ProcessesToKill">
+                    <label>Semi-colon separated list of processes to kill on loggoff (do not include '.exe' from the end of the process):</label>
+                </textBox>
+            </presentation>
+            <presentation id="SmartcardReaderDeniedList">
+                <textBox refId="SmartcardReaderDeniedList">
+                    <label>Semi-colon separated list of devices to ignore as potential card readers:</label>
+                </textBox>
+            </presentation>
+            <presentation id="NoRolesLogoff"/>
+            <presentation id="CardRemovalCheck"/>
+            <presentation id="TrustedCertificateIssuers">
+                <textBox refId="TrustedCertificateIssuers">
+                    <label>Certificate DN to trust (provide LIVE or INT DN if needed):</label>
+                </textBox>
+            </presentation>
+            <presentation id="CardHealingEnabled"/>
+            <presentation id="EnhancedNormalMode"/>
+            <presentation id="UseCardReaderPolling"/>
+        </presentationTable>
+    </resources>
+</policyDefinitionResources>

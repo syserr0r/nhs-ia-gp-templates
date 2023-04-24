@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<policyDefinitions revision="1.0" schemaVersion="1.0">
+  <policyNamespaces>
+    <target namespace="NHS.Policies" prefix="NHS"/>
+  </policyNamespaces>
+  <resources minRequiredRevision="1.0" />
+  <categories>
+    <category displayName="$(string.NHS)" name="Cat_NHS"/>
+  </categories>
+</policyDefinitions>
